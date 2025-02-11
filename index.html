@@ -55,59 +55,55 @@
 <body>
     <div class="header">
         <h1>Cryptography Algorithms</h1>
-        <p>Click on file names to view or click copy button to copy the content.</p>
+        <p>Click on file names to view or click the copy button to copy the content.</p>
     </div>
     <div class="file-list">
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/1a.c" target="_blank">1a.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/1a.c" target="_blank">1a.c</a>
             <button onclick="copyFileContent('1a.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/1b.c" target="_blank">1b.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/1b.c" target="_blank">1b.c</a>
             <button onclick="copyFileContent('1b.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/des.c" target="_blank">des.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/des.c" target="_blank">des.c</a>
             <button onclick="copyFileContent('des.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/diffi-hell.c" target="_blank">diffi-hell.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/diffi-hell.c" target="_blank">diffi-hell.c</a>
             <button onclick="copyFileContent('diffi-hell.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/rsa.c" target="_blank">rsa.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/rsa.c" target="_blank">rsa.c</a>
             <button onclick="copyFileContent('rsa.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/rail.c" target="_blank">rail.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/rail.c" target="_blank">rail.c</a>
             <button onclick="copyFileContent('rail.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/miller.c" target="_blank">miller.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/miller.c" target="_blank">miller.c</a>
             <button onclick="copyFileContent('miller.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/digital_signature.py" target="_blank">digital_signature.py</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/digital_signature.py" target="_blank">digital_signature.py</a>
             <button onclick="copyFileContent('digital_signature.py')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/hill-cipher.c" target="_blank">hill-cipher.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/hill-cipher.c" target="_blank">hill-cipher.c</a>
             <button onclick="copyFileContent('hill-cipher.c')">Copy</button>
         </div>
     </div>
 
     <script>
-        // GitHub repository information
-        const GITHUB_USERNAME = 'SevanthTP';
-        const REPO_NAME = 'CNS';
-
         async function copyFileContent(filename) {
             try {
-                const rawUrl = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${filename}`;
+                const rawUrl = `https://raw.githubusercontent.com/SevanthTP/CNS/main/${filename}`;
                 const response = await fetch(rawUrl);
                 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch file content');
+                    throw new Error('File not found or cannot be accessed');
                 }
                 
                 const text = await response.text();
@@ -125,7 +121,7 @@
                 }, 2000);
             } catch (error) {
                 console.error('Error copying file content:', error);
-                alert('Failed to copy file content. Please try again.');
+                alert('Failed to copy file content. Please check the file path or try again.');
             }
         }
     </script>
