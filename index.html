@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File List</title>
     <style>
         .file-list {
@@ -20,67 +21,59 @@
             cursor: pointer;
         }
     </style>
+    <script>
+        async function copyFileContent(fileName) {
+            try {
+                const response = await fetch(`https://raw.githubusercontent.com/SevanthTP/CNS/main/files/${fileName}`);
+                if (!response.ok) throw new Error('Network response was not ok');
+                const text = await response.text();
+                await navigator.clipboard.writeText(text);
+                alert(`${fileName} content copied to clipboard!`);
+            } catch (error) {
+                alert('Failed to copy file content: ' + error.message);
+            }
+        }
+    </script>
 </head>
 <body>
     <h1>File List</h1>
     <div class="file-list">
-      <div class="file-item">
-    <a href="files/1a.c" target="_blank">1a.c</a>
-    <button onclick="copyFileContent('1a.c')">Copy</button>
-</div>
         <div class="file-item">
-            <a href="https://raw.githubusercontent.com/SevanthTP/files/main/1b.c" target="_blank">1b.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/1a.c" target="_blank">1a.c</a>
+            <button onclick="copyFileContent('1a.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/1b.c" target="_blank">1b.c</a>
             <button onclick="copyFileContent('1b.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://raw.githubusercontent.com/SevanthTP/files/main/des.c" target="_blank">des.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/des.c" target="_blank">des.c</a>
             <button onclick="copyFileContent('des.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://raw.githubusercontent.com/SevanthTP/files/main/diffi-hell.c" target="_blank">diffi-hell.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/diffi-hell.c" target="_blank">diffi-hell.c</a>
             <button onclick="copyFileContent('diffi-hell.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://raw.githubusercontent.com/SevanthTP/files/main/rsa.c" target="_blank">rsa.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/rsa.c" target="_blank">rsa.c</a>
             <button onclick="copyFileContent('rsa.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/rail.c" target="_blank">rail.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/rail.c" target="_blank">rail.c</a>
             <button onclick="copyFileContent('rail.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/miller.c" target="_blank">miller.c</a>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/miller.c" target="_blank">miller.c</a>
             <button onclick="copyFileContent('miller.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/digital_signature.py" target="_blank">digital_signature.py</a>
-            <button onclick="copyFileContent('digital_signature.py')">Copy</button>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/sha.c" target="_blank">sha.c</a>
+            <button onclick="copyFileContent('sha.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/hill-cipher.c" target="_blank">hill-cipher.c</a>
-            <button onclick="copyFileContent('hill-cipher.c')">Copy</button>
+            <a href="https://raw.githubusercontent.com/SevanthTP/CNS/main/files/md5.c" target="_blank">md5.c</a>
+            <button onclick="copyFileContent('md5.c')">Copy</button>
         </div>
     </div>
-
-    <script>
-      async function copyFileContent(filename) {
-    try {
-        const rawUrl = `https://raw.githubusercontent.com/SevanthTP/CNS/main/files/${filename}`;
-        const response = await fetch(rawUrl);
-
-        if (!response.ok) {
-            throw new Error(`File not found: ${filename}`);
-        }
-
-        const text = await response.text();
-        await navigator.clipboard.writeText(text);
-        alert(`Copied: ${filename}`);
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Failed to copy file content. Please check if the file exists.');
-    }
-}
-
-    </script>
 </body>
 </html>
