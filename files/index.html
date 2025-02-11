@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>File List</title>
+    <style>
+        .file-list {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .file-item {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>File List</h1>
+    <div class="file-list">
+        <div class="file-item">
+            <a href="1a.c" target="_blank">1a.c</a>
+            <button onclick="copyFileContent('1a.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="1b.c" target="_blank">1b.c</a>
+            <button onclick="copyFileContent('1b.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="des.c" target="_blank">des.c</a>
+            <button onclick="copyFileContent('des.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="diffi-hell.c" target="_blank">diffi-hell.c</a>
+            <button onclick="copyFileContent('diffi-hell.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="rsa.c" target="_blank">rsa.c</a>
+            <button onclick="copyFileContent('rsa.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="rail.c" target="_blank">rail.c</a>
+            <button onclick="copyFileContent('rail.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="miller.c" target="_blank">miller.c</a>
+            <button onclick="copyFileContent('miller.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="digital_signature.py" target="_blank">digital_signature.py</a>
+            <button onclick="copyFileContent('digital_signature.py')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="hill-cipher.c" target="_blank">hill-cipher.c</a>
+            <button onclick="copyFileContent('hill-cipher.c')">Copy</button>
+        </div>
+    </div>
+
+    <script>
+        async function copyFileContent(filename) {
+            try {
+                const response = await fetch(filename);
+                const text = await response.text();
+                await navigator.clipboard.writeText(text);
+                alert('File content copied to clipboard!');
+            } catch (error) {
+                console.error('Error copying file content:', error);
+                alert('Failed to copy file content. Please try again.');
+            }
+        }
+    </script>
+</body>
+</html>
