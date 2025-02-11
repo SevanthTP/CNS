@@ -59,48 +59,40 @@
     </div>
     <div class="file-list">
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/1a.c" target="_blank">1a.c</a>
-            <button onclick="copyGitHubContent('1a.c')">Copy</button>
+            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/caesar.c" target="_blank">caesar.c</a>
+            <button onclick="copyGitHubContent('Lab/caesar.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/1b.c" target="_blank">1b.c</a>
-            <button onclick="copyGitHubContent('1b.c')">Copy</button>
+            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/play.c" target="_blank">play.c</a>
+            <button onclick="copyGitHubContent('Lab/play.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/des.c" target="_blank">des.c</a>
-            <button onclick="copyGitHubContent('des.c')">Copy</button>
+            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/des.c" target="_blank">des.c</a>
+            <button onclick="copyGitHubContent('Lab/des.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/diffi-hell.c" target="_blank">diffi-hell.c</a>
-            <button onclick="copyGitHubContent('diffi-hell.c')">Copy</button>
+            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/diffie.c" target="_blank">diffie.c</a>
+            <button onclick="copyGitHubContent('Lab/diffie.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/rsa.c" target="_blank">rsa.c</a>
-            <button onclick="copyGitHubContent('rsa.c')">Copy</button>
+            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/rsa.c" target="_blank">rsa.c</a>
+            <button onclick="copyGitHubContent('Lab/rsa.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/rail.c" target="_blank">rail.c</a>
-            <button onclick="copyGitHubContent('rail.c')">Copy</button>
+            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/md5.c" target="_blank">md5.c</a>
+            <button onclick="copyGitHubContent('Lab/md5.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/miller.c" target="_blank">miller.c</a>
-            <button onclick="copyGitHubContent('miller.c')">Copy</button>
-        </div>
-        <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/digital_signature.py" target="_blank">digital_signature.py</a>
-            <button onclick="copyGitHubContent('digital_signature.py')">Copy</button>
-        </div>
-        <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/hill-cipher.c" target="_blank">hill-cipher.c</a>
-            <button onclick="copyGitHubContent('hill-cipher.c')">Copy</button>
+            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/hill.c" target="_blank">hill.c</a>
+            <button onclick="copyGitHubContent('Lab/hill.c')">Copy</button>
         </div>
     </div>
 
     <script>
-        async function copyGitHubContent(filename) {
+        async function copyGitHubContent(filepath) {
             try {
                 // Construct the raw GitHub URL
-                const rawUrl = `https://raw.githubusercontent.com/SevanthTP/CNS/main/${filename}`;
+                const rawUrl = `https://raw.githubusercontent.com/SevanthTP/CNS/main/${filepath}`;
                 
                 // Fetch the raw content
                 const response = await fetch(rawUrl, {
@@ -133,7 +125,7 @@
                 
             } catch (error) {
                 console.error('Error:', error);
-                alert('Failed to copy file content. Make sure the repository is public and the file exists.');
+                alert('Failed to copy file content. Please try again.');
             }
         }
     </script>
