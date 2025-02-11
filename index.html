@@ -2,129 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cryptography Algorithms</title>
+    <title>File List</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            max-width: 1000px;
+        .file-list {
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background: #f6f8fa;
-        }
-        .file-list {
-            background: white;
-            border-radius: 6px;
-            padding: 20px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
         }
         .file-item {
-            padding: 12px;
-            border-bottom: 1px solid #e1e4e8;
+            margin: 10px 0;
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .file-item:last-child {
-            border-bottom: none;
-        }
-        .file-item a {
-            color: #0366d6;
-            text-decoration: none;
-            flex-grow: 1;
-        }
-        .file-item a:hover {
-            text-decoration: underline;
-        }
         button {
-            padding: 5px 12px;
-            background: #2ea44f;
-            color: white;
-            border: 1px solid rgba(27, 31, 35, 0.15);
-            border-radius: 6px;
+            padding: 5px 10px;
             cursor: pointer;
-            font-size: 14px;
-        }
-        button:hover {
-            background: #2c974b;
-        }
-        .header {
-            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Cryptography Algorithms</h1>
-        <p>Click on file names to view or click copy button to copy the content.</p>
-    </div>
+    <h1>File List</h1>
     <div class="file-list">
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/caesar.c" target="_blank">caesar.c</a>
-            <button onclick="copyGitHubContent('Lab/caesar.c')">Copy</button>
+            <a href="1a.c" target="_blank">1a.c</a>
+            <button onclick="copyFileContent('1a.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/play.c" target="_blank">play.c</a>
-            <button onclick="copyGitHubContent('Lab/play.c')">Copy</button>
+            <a href="1b.c" target="_blank">1b.c</a>
+            <button onclick="copyFileContent('1b.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/des.c" target="_blank">des.c</a>
-            <button onclick="copyGitHubContent('Lab/des.c')">Copy</button>
+            <a href="des.c" target="_blank">des.c</a>
+            <button onclick="copyFileContent('des.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/diffie.c" target="_blank">diffie.c</a>
-            <button onclick="copyGitHubContent('Lab/diffie.c')">Copy</button>
+            <a href="diffi-hell.c" target="_blank">diffi-hell.c</a>
+            <button onclick="copyFileContent('diffi-hell.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/rsa.c" target="_blank">rsa.c</a>
-            <button onclick="copyGitHubContent('Lab/rsa.c')">Copy</button>
+            <a href="rsa.c" target="_blank">rsa.c</a>
+            <button onclick="copyFileContent('rsa.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/md5.c" target="_blank">md5.c</a>
-            <button onclick="copyGitHubContent('Lab/md5.c')">Copy</button>
+            <a href="rail.c" target="_blank">rail.c</a>
+            <button onclick="copyFileContent('rail.c')">Copy</button>
         </div>
         <div class="file-item">
-            <a href="https://github.com/SevanthTP/CNS/blob/main/Lab/hill.c" target="_blank">hill.c</a>
-            <button onclick="copyGitHubContent('Lab/hill.c')">Copy</button>
+            <a href="miller.c" target="_blank">miller.c</a>
+            <button onclick="copyFileContent('miller.c')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="digital_signature.py" target="_blank">digital_signature.py</a>
+            <button onclick="copyFileContent('digital_signature.py')">Copy</button>
+        </div>
+        <div class="file-item">
+            <a href="hill-cipher.c" target="_blank">hill-cipher.c</a>
+            <button onclick="copyFileContent('hill-cipher.c')">Copy</button>
         </div>
     </div>
 
     <script>
-        async function copyGitHubContent(filepath) {
+        async function copyFileContent(filename) {
             try {
-                // Construct the raw GitHub URL
-                const rawUrl = `https://raw.githubusercontent.com/SevanthTP/CNS/main/${filepath}`;
-                
-                // Fetch the raw content
-                const response = await fetch(rawUrl, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'text/plain'
-                    }
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                
-                // Get the text content
+                const response = await fetch(filename);
                 const text = await response.text();
-                
-                // Copy to clipboard
                 await navigator.clipboard.writeText(text);
-                
-                // Visual feedback
-                const button = event.target;
-                const originalText = button.textContent;
-                button.textContent = 'Copied!';
-                button.style.backgroundColor = '#28a745';
-                
-                setTimeout(() => {
-                    button.textContent = originalText;
-                    button.style.backgroundColor = '#2ea44f';
-                }, 2000);
-                
+                alert('File content copied to clipboard!');
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error copying file content:', error);
                 alert('Failed to copy file content. Please try again.');
             }
         }
