@@ -12,21 +12,23 @@ void main()
     scanf("%s",&plain);  
 
     printf("Enter the key value\n");
-    scanf("%d", &key); 
+    scanf("%d", &key);  
 
     printf("Plain text %s is\n", plain);  
     printf("Encrypted text:\n");
 
+   
     for(i = 0, length = strlen(plain); i < length; i++)  
     {
         cipher[i] = plain[i] + key; 
 
-      
+
         if(isupper(plain[i]) && (cipher[i] > 'Z'))
             cipher[i] = cipher[i] - 26; 
 
+        
         if(islower(plain[i]) && (cipher[i] > 'z'))
-            cipher[i] = cipher[i] - 26; 
+            cipher[i] = cipher[i] - 26;
 
         printf("%c", cipher[i]); 
     }
@@ -37,14 +39,13 @@ void main()
     for(i = 0; i < length; i++)
     {
         plain[i] = cipher[i] - key; 
-
-
+    
         if(isupper(cipher[i]) && (plain[i] < 'A'))
-            plain[i] = plain[i] + 26; '
+            plain[i] = plain[i] + 26; 
 
-        
+   
         if(islower(cipher[i]) && (plain[i] < 'a'))
-            plain[i] = plain[i] + 26;
+            plain[i] = plain[i] + 26; 
 
         printf("%c", plain[i]); 
     }
